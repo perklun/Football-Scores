@@ -1,0 +1,9 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="@dimen/minWidgetWidth"
+    android:minHeight="@dimen/minWidgetHeight"
+    android:updatePeriodMillis="86400000"
+    android:previewImage="@drawable/ic_launcher"
+    android:initialLayout="@layout/score_widget"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen">
+</appwidget-provider>
