@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="@dimen/widget_team_name"
+                android:text="@string/test_text"
                 android:gravity="center"
                 android:id="@+id/tv_widget_home_name"
                 android:contentDescription="@string/home_team_name"/>

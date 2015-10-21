@@ -32,7 +32,7 @@
                 android:value=".activities.MainActivity" />
         </activity>
 
-        <service android:name=".service.myFetchService" />
+        <service android:name=".service.MyFetchService" />
         <service android:name=".service.ScoreWidgetIntentService" />
 
         <receiver android:name="ScoreAppWidgetProvider"

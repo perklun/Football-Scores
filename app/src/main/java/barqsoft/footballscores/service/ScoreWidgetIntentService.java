@@ -17,7 +17,7 @@ import barqsoft.footballscores.ScoreAppWidgetProvider;
 import barqsoft.footballscores.Utilities;
 import barqsoft.footballscores.activities.MainActivity;
 
-import barqsoft.footballscores.scoresAdapter;
+import barqsoft.footballscores.ScoresAdapter;
 
 /**
  * Intent Service to update widget
@@ -44,13 +44,13 @@ public class ScoreWidgetIntentService extends IntentService {
             if(cursor != null){
                 if(cursor.moveToFirst()) {
                     //Set textviews and content descriptors in widget with team names, scores
-                    views.setTextViewText(R.id.tv_widget_home_name, cursor.getString(scoresAdapter.COL_HOME));
-                    views.setContentDescription(R.id.tv_widget_home_name, cursor.getString(scoresAdapter.COL_HOME));
-                    views.setTextViewText(R.id.tv_widget_away_name, cursor.getString(scoresAdapter.COL_AWAY));
-                    views.setContentDescription(R.id.tv_widget_away_name, cursor.getString(scoresAdapter.COL_AWAY));
-                    views.setTextViewText(R.id.tv_widget_data_textview, cursor.getString(scoresAdapter.COL_DATE));
-                    views.setContentDescription(R.id.tv_widget_data_textview, cursor.getString(scoresAdapter.COL_DATE));
-                    String score = Utilities.getScores(cursor.getInt(scoresAdapter.COL_HOME_GOALS), cursor.getInt(scoresAdapter.COL_AWAY_GOALS));
+                    views.setTextViewText(R.id.tv_widget_home_name, cursor.getString(ScoresAdapter.COL_HOME));
+                    views.setContentDescription(R.id.tv_widget_home_name, cursor.getString(ScoresAdapter.COL_HOME));
+                    views.setTextViewText(R.id.tv_widget_away_name, cursor.getString(ScoresAdapter.COL_AWAY));
+                    views.setContentDescription(R.id.tv_widget_away_name, cursor.getString(ScoresAdapter.COL_AWAY));
+                    views.setTextViewText(R.id.tv_widget_data_textview, cursor.getString(ScoresAdapter.COL_DATE));
+                    views.setContentDescription(R.id.tv_widget_data_textview, cursor.getString(ScoresAdapter.COL_DATE));
+                    String score = Utilities.getScores(cursor.getInt(ScoresAdapter.COL_HOME_GOALS), cursor.getInt(ScoresAdapter.COL_AWAY_GOALS));
                     views.setTextViewText(R.id.tv_widget_score_textview, score);
                     views.setContentDescription(R.id.tv_widget_data_textview, score);
                     // Tell the AppWidgetManager to perform an update on the current app widget
