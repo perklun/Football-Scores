@@ -37,6 +37,7 @@ public class ScoreWidgetIntentService extends IntentService {
             // Get the layout for the App Widget
             RemoteViews views = new RemoteViews(getPackageName(), R.layout.score_widget);
             //update views by querying database for socres with a date
+            //Date fragmentdate = new Date(System.currentTimeMillis());
             Date fragmentdate = new Date(System.currentTimeMillis());
             SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
             String date = (mformat.format(fragmentdate));
@@ -50,7 +51,8 @@ public class ScoreWidgetIntentService extends IntentService {
                     views.setContentDescription(R.id.tv_widget_away_name, cursor.getString(ScoresAdapter.COL_AWAY));
                     views.setTextViewText(R.id.tv_widget_data_textview, cursor.getString(ScoresAdapter.COL_DATE));
                     views.setContentDescription(R.id.tv_widget_data_textview, cursor.getString(ScoresAdapter.COL_DATE));
-                    String score = Utilities.getScores(cursor.getInt(ScoresAdapter.COL_HOME_GOALS), cursor.getInt(ScoresAdapter.COL_AWAY_GOALS));
+                    Utilities u = new Utilities(getApplicationContext());
+                    String score = u.getScores(cursor.getInt(ScoresAdapter.COL_HOME_GOALS), cursor.getInt(ScoresAdapter.COL_AWAY_GOALS));
                     views.setTextViewText(R.id.tv_widget_score_textview, score);
                     views.setContentDescription(R.id.tv_widget_data_textview, score);
                     // Tell the AppWidgetManager to perform an update on the current app widget

@@ -12,8 +12,10 @@
     <string name="bundesliga">Bundesliga</string>
     <string name="premierleague">Premier League</string>
     <string name="primeradivison">Primera Division</string>
+    <string name="unknown_league">Unknown league</string>
     <string name="seriaa">Serie A</string>
     <string name="matchday_text">Match day</string>
+    <string name="hyphen"> - </string>
     <string name="group_stage_text">Group stages</string>
     <string name="first_knockout_round">First knockout round</string>
     <string name="quarter_final">Quarter Final</string>

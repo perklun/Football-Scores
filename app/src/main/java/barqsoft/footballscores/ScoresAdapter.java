@@ -45,13 +45,14 @@ public class ScoresAdapter extends CursorAdapter
     public void bindView(View view, final Context context, Cursor cursor)
     {
         final ViewHolder mHolder = (ViewHolder) view.getTag();
+        Utilities u = new Utilities(context);
         mHolder.home_name.setText(cursor.getString(COL_HOME));
         mHolder.home_name.setContentDescription(mHolder.home_name.getText());
         mHolder.away_name.setText(cursor.getString(COL_AWAY));
         mHolder.away_name.setContentDescription(mHolder.away_name.getText());
         mHolder.date.setText(cursor.getString(COL_MATCHTIME));
         mHolder.date.setContentDescription(mHolder.date.getText());
-        mHolder.score.setText(Utilities.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
+        mHolder.score.setText(u.getScores(cursor.getInt(COL_HOME_GOALS), cursor.getInt(COL_AWAY_GOALS)));
         mHolder.score.setContentDescription(mHolder.score.getText());
         mHolder.match_id = cursor.getDouble(COL_ID);
         mHolder.home_crest.setImageResource(Utilities.getTeamCrestByTeamName(
@@ -71,11 +72,12 @@ public class ScoresAdapter extends CursorAdapter
             container.addView(v, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT
                     , ViewGroup.LayoutParams.MATCH_PARENT));
             TextView match_day = (TextView) v.findViewById(R.id.matchday_textview);
-            match_day.setText(Utilities.getMatchDay(cursor.getInt(COL_MATCHDAY),
+            match_day.setText(u.getMatchDay(cursor.getInt(COL_MATCHDAY),
                     cursor.getInt(COL_LEAGUE)));
             match_day.setContentDescription(match_day.getText());
             TextView league = (TextView) v.findViewById(R.id.league_textview);
-            league.setText(Utilities.getLeague(cursor.getInt(COL_LEAGUE)));
+
+            league.setText(u.getLeague(cursor.getInt(COL_LEAGUE)));
             league.setContentDescription(league.getText());
             Button share_button = (Button) v.findViewById(R.id.share_button);
             share_button.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +93,6 @@ public class ScoresAdapter extends CursorAdapter
         else {
             container.removeAllViews();
         }
-
     }
     public Intent createShareForecastIntent(String ShareText) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
