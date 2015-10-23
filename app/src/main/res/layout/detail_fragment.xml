@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +33,9 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layoutDirection="locale"
+        >
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,9 +44,10 @@
             android:text="@string/share_text"
             android:id="@+id/share_button"
             android:drawableLeft="@android:drawable/ic_menu_share"
-            android:paddingStart="120dp"
-            android:paddingEnd="120dp"
+            android:paddingStart="@dimen/button"
+            android:paddingEnd="@dimen/button"
+            android:paddingLeft="@dimen/button"
+            android:paddingRight="@dimen/button"
             android:contentDescription="@string/share_button"/>
     </FrameLayout>
-
 </LinearLayout>
